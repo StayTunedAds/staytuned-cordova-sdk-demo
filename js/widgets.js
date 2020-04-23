@@ -26,7 +26,7 @@
             return (
               <div className="widget-container" key={i}>
                 <staytuned-widget
-                format="interview"
+                format="four-thirds"
                 location-key={w.locationKey}
                 featured-content-key={w.contentKey}
                 debug={debug} />
