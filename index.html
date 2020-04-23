@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      //document.write('<base href="' + document.location + '/" />');
+    </script>
+    <base href="./" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- https://stackoverflow.com/a/58119194 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+    <script src="https://unpkg.com/react-transition-group@4.3.0/dist/react-transition-group.min.js"></script>
+    <title>Cordova SDK - React Demo</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="sdk-react-demo"></div>
+    <staytuned-mobile-sdk-player />
+
+    <script>
+      window.CORDOVA_SDK_DEMO = {};
+    </script>
+
+    <script type="text/babel" src="js/header.js"></script>
+    <script type="text/babel" src="js/widgets.js"></script>
+    <script type="text/babel" src="js/podcast.js"></script>
+    <script type="text/babel" src="js/episode.js"></script>
+    <script type="text/babel" src="js/index.js"></script>
+    <!-- <script src="../assets/loader.js"></script> -->
+    <script src="https://components.staytuned.io/0.3.15/staytuned/staytuned.esm.js" type="module" crossorigin="anonymous" async=""></script>
+    <script src="https://components.staytuned.io/0.3.15/staytuned/staytuned.js" nomodule="" crossorigin="anonymous" async=""></script>
+  </body>
+</html>
