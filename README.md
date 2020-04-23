@@ -49,8 +49,10 @@ Composant : *\<staytuned-widget />*
 
 Attributs :
   - location-key: string; // uuid
-  - feature-content-key: string; // uuid
-  - format?: 'interview' | '...' | '...'
+  - featured-content-key?: string; // (optional) uuid
+  - featured-element-keys?: string // (optional) uuid semicolon separated list of element. Ex: uuid1;uuid2;uuid3
+  - selected-element-key?: string // (optional) uuid
+  - format?: 'interview' | '...' | '...' // (optional) default is interview
 
 <img src="readme-assets/widget-img.png" width="300">
 
