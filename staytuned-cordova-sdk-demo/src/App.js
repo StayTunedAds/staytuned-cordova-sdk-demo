@@ -5,8 +5,6 @@ import Widgets from './widgets';
 import Podcast from './podcast';
 import Episode from './episode';
 
-import logo from './logo.svg';
-
 /* function App() {
   return (
     <div className="App">
