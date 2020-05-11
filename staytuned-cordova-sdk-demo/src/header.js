@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = function ({ sdkView, target }) {
@@ -30,7 +31,7 @@ const Header = function ({ sdkView, target }) {
 
   return (
     <header className="header--empty">
-      <img src="./lacroix-header.png" />
+      <img src="./lacroix-header.png" alt="logo" />
     </header>
   );
 }

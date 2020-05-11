@@ -1,30 +1,9 @@
-import { useEffect } from 'react';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Redirect, Route, Switch, useHistory, Router } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Widgets from './widgets';
 import Podcast from './podcast';
 import Episode from './episode';
-
-/* function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-} */
 
 localStorage.clear(); // this is temporary, only for demo
 
@@ -75,18 +54,18 @@ const App = function () {
         classNames="fade"
         timeout={400}
       >
-        <Switch location={location}>
-          {
-            routes.map((r, i) => {
-              return <Route key={i}
-                            exact={true}
-                            path={r.path}
-                            render={() => React.createElement(r.component, { debug })}
-                      />
-            })
-          }
-          <Redirect from="*" to="/sdk" />
-        </Switch>
+          <Switch location={location}>
+            {
+              routes.map((r, i) => {
+                return <Route key={i}
+                              exact={true}
+                              path={r.path}
+                              render={() => React.createElement(r.component, { debug })}
+                        />
+              })
+            }
+            <Redirect from="*" to="/sdk" />
+          </Switch>
       </CSSTransition>
     </TransitionGroup>
   );

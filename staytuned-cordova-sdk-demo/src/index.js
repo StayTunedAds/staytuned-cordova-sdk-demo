@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './app';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
 
 const renderReactDom = () => { 
   ReactDOM.render(
@@ -18,7 +18,9 @@ if (window.cordova) {
     renderReactDom();
   }, false);
 } else {
-  renderReactDom();
+  window.onload = () => {
+    renderReactDom();
+  }
 }
 
 // If you want your app to work offline and load faster, you can change
