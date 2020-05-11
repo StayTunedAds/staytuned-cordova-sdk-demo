@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './app';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
+import { HashRouter } from 'react-router-dom';
 
 const renderReactDom = () => { 
   ReactDOM.render(
-    <React.StrictMode>
+    <HashRouter>
       <App />
-    </React.StrictMode>,
+    </HashRouter>,
     document.getElementById('sdk-react-demo')
   );
 }
