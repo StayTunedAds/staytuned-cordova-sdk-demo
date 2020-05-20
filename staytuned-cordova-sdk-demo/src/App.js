@@ -17,6 +17,16 @@ const debug = (function () {
   return debug;
 }());
 
+const adapter = (function () {
+  const playerSelector = 'staytuned-mobile-sdk-player';
+  const player = document.querySelector(playerSelector);
+  if (!player) {
+    throw new Error('<' + playerSelector + ' /> component not found in page <body>');
+  }
+  const adapter = player.getAttribute('adapter-type') || 'web';
+  return adapter;
+}());
+
 const routes = [
   { path: '/sdk', component: Widgets },
   { path: '/sdk/:locationKey/:contentKey', component: Podcast },
@@ -60,7 +70,7 @@ const App = function () {
                 return <Route key={i}
                               exact={true}
                               path={r.path}
-                              render={() => React.createElement(r.component, { debug })}
+                              render={() => React.createElement(r.component, { debug, adapter })}
                         />
               })
             }

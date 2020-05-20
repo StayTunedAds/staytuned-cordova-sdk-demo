@@ -3,7 +3,7 @@
   <head>
     <base href="./" />
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -29,20 +29,21 @@
   </head>
   <body>
     <div id="sdk-react-demo"></div>
-    <staytuned-mobile-sdk-player />
+    <staytuned-mobile-sdk-player adapter-type="cordova" />
 
-      <script
-      src="https://components.staytuned.io/0.3.15/staytuned/staytuned.esm.js"
+    <script
+      src="https://components.staytuned.io/0.3.17/staytuned/staytuned.esm.js"
       type="module"
       crossorigin="anonymous"
       async=""
     ></script>
     <script
-      src="https://components.staytuned.io/0.3.15/staytuned/staytuned.js"
+      src="https://components.staytuned.io/0.3.17/staytuned/staytuned.js"
       nomodule=""
       crossorigin="anonymous"
       async=""
     ></script>
     <script src="cordova.js" type="text/javascript"></script>
+    <script src="%PUBLIC_URL%/cordova-adapter.js" ></script>
   </body>
 </html>

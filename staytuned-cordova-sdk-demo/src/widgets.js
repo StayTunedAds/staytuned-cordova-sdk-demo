@@ -1,7 +1,7 @@
 import React from 'react';
 import  Header from './header';
 
-const Widgets = function ({ debug }) {
+const Widgets = function ({ debug, adapter }) {
   const widgets = [
     {
       locationKey: '6afbb74a-5f50-4f78-8fb3-30ec67db7d26',
@@ -29,6 +29,7 @@ const Widgets = function ({ debug }) {
               format="four-thirds"
               location-key={w.locationKey}
               featured-content-key={w.contentKey}
+              adapter-type={adapter}
               debug={debug} />
             </div>
           )
