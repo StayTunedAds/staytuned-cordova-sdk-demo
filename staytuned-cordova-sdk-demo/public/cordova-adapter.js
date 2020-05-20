@@ -27,16 +27,18 @@ document.addEventListener("deviceready",
       },
       error: function(err, url){
         //failure of playback of media object
-        console.error(err);
+        // console.error(err);
 
-        // if (window.__stCordovaHook__.__private__.pending.playPromiseId && err.code !== 0 && err.code !== 1) {
-        //   console.log('reject play promise with id: ' + window.__stCordovaHook__.__private__.pending.playPromiseId);
-        //   window.__staytunedGlobal__.staytunedCore.crossStackHandler.rejectPromise(
-        //     window.__stCordovaHook__.__private__.pending.playPromiseId,
-        //     err
-        //   );
-        //   window.__stCordovaHook__.__private__.pending.playPromiseId = null;
-        // }
+        if (window.__stCordovaHook__.__private__.mediaList[url].playPromiseId) {
+          window.__staytunedGlobal__.staytunedCore.crossStackHandler.rejectPromise(
+            window.__stCordovaHook__.__private__.mediaList[url].playPromiseId,
+            { 
+              name: 'CordovaSdkError',
+              err: err
+            }
+          );
+          window.__stCordovaHook__.__private__.mediaList[url].playPromiseId = null;
+        }
       },
       statusChange: function(status, url){
 
@@ -44,21 +46,12 @@ document.addEventListener("deviceready",
           return;
         }
 
-        console.log(`(${url}) status change: ${window.__stCordovaHook__.__private__.status[status]}`);
+        // console.log(`(${url}) status change: ${window.__stCordovaHook__.__private__.status[status]}`);
         window.__stCordovaHook__.__private__.mediaList[url].currentStatus = status;
-  
-        // Pending change current time
-        if (status === 2 && window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime !== null) {
-          console.log(`(${url}) pending current time set to ${window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime}`);
-          window.__stCordovaHook__.setCurrentTime({
-            currentTime: window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime
-          });
-          window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime = null;
-        }
-  
+
         // Pending play promise
         if (status === 2 && window.__stCordovaHook__.__private__.mediaList[url].playPromiseId) {
-          console.log(`(${url}) resolve play promise ${window.__stCordovaHook__.__private__.mediaList[url].playPromiseId}`);
+          // console.log(`(${url}) resolve play promise ${window.__stCordovaHook__.__private__.mediaList[url].playPromiseId}`);
           window.__staytunedGlobal__.staytunedCore.crossStackHandler.resolvePromise(
             window.__stCordovaHook__.__private__.mediaList[url].playPromiseId,
             null
@@ -66,25 +59,34 @@ document.addEventListener("deviceready",
           window.__stCordovaHook__.__private__.mediaList[url].playPromiseId = null;
         }
   
+        // Pending change current time
+        if (status === 2 && window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime !== null) {
+          // console.log(`(${url}) pending current time set to ${window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime}`);
+          window.__stCordovaHook__.setCurrentTime({
+            currentTime: window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime
+          });
+          window.__stCordovaHook__.__private__.mediaList[url].pendingCurrentTime = null;
+        }
+  
         // Emit duration change
         if (status === 2 && !window.__stCordovaHook__.__private__.mediaList[url].durationSent) {
           const duration = window.__stCordovaHook__.__private__.mediaList[url].media.getDuration();
 
           if (duration > 0) {
-            console.log(`(${url}) emit durationchange(${duration})`);
+            // console.log(`(${url}) emit durationchange(${duration})`);
             window.__staytunedGlobal__.staytunedCore.crossStackHandler.emit(
               'durationchange',
               duration
             );
             window.__stCordovaHook__.__private__.mediaList[url].durationSent = true;
           } else {
-            console.log(`(${url}) /!\\ not emitted durationchange(${duration})`);
+            // console.log(`(${url}) /!\\ not emitted durationchange(${duration})`);
           }
         }
   
         // Launch timeupdate loop
         if (status === 2 && !window.__stCordovaHook__.__private__.mediaList[url].timeUpdateFct) {
-          console.log(`(${url}) set time update interval function`);
+          // console.log(`(${url}) set time update interval function`);
           window.__stCordovaHook__.__private__.mediaList[url].timeUpdateFct = setInterval(() => {
             window.__stCordovaHook__.__private__.mediaList[url].media.getCurrentPosition(
               (pos) => {
@@ -98,18 +100,18 @@ document.addEventListener("deviceready",
           }, 500);
         } else {
           if (status !== 2 && window.__stCordovaHook__.__private__.mediaList[url].timeUpdateFct) {
-            console.log(`(${url}) clear time update interval function`)
+            // console.log(`(${url}) clear time update interval function`)
             clearInterval(window.__stCordovaHook__.__private__.mediaList[url].timeUpdateFct);
             window.__stCordovaHook__.__private__.mediaList[url].timeUpdateFct = null;
           }
         }
         
         if (status === 4 && window.__stCordovaHook__.__private__.mediaList[url].media) {
-          console.log(`(${url}) release current media`);
+          // console.log(`(${url}) release current media`);
           window.__stCordovaHook__.__private__.mediaList[url].media.release();
           
           if (window.__stCordovaHook__.__private__.currentMediaUrl === url) {
-            console.log(`(${url}) emit end`);
+            // console.log(`(${url}) emit end`);
             window.__staytunedGlobal__.staytunedCore.crossStackHandler.emit(
               'end'
             );
@@ -123,20 +125,20 @@ document.addEventListener("deviceready",
       window.__stCordovaHook__.__private__.staytunedReady = true;
     },
     setCurrentTime: (currentTime) => {
-      console.log(`received setCurrentTime(${currentTime.currentTime})`);
+      // console.log(`received setCurrentTime(${currentTime.currentTime})`);
   
       const currentTimeValue = currentTime.currentTime;
       const currentMedia = window.__stCordovaHook__.__private__.mediaList[window.__stCordovaHook__.__private__.currentMediaUrl];
   
       if (currentMedia) {
         if (currentMedia.currentStatus !== 2 && currentMedia.currentStatus !== 3) {
-          console.log(`store pending current time: ${currentTimeValue}`);
+          // console.log(`store pending current time: ${currentTimeValue}`);
           // Store pending currentTime since the status doesn't allow to seek a position
           window.__stCordovaHook__.__private__.mediaList[
             window.__stCordovaHook__.__private__.currentMediaUrl
           ].pendingCurrentTime = currentTimeValue;
         } else {
-          console.log('apply current time: ' + currentTimeValue);
+          // console.log('apply current time: ' + currentTimeValue);
           window.__stCordovaHook__.__private__.mediaList[
             window.__stCordovaHook__.__private__.currentMediaUrl
           ].media.seekTo(currentTimeValue * 1000);
@@ -144,7 +146,7 @@ document.addEventListener("deviceready",
       } 
     },
     play: (promiseId) => {
-      console.log(`play received ${promiseId.promiseId}`);
+      // console.log(`play received ${promiseId.promiseId}`);
 
       window.__stCordovaHook__.__private__.mediaList[
         window.__stCordovaHook__.__private__.currentMediaUrl
@@ -185,7 +187,7 @@ document.addEventListener("deviceready",
 
       window.__stCordovaHook__.__private__.currentMediaUrl = source.source.url;
 
-      console.log(`create new media ${source.source.url}`)
+      // console.log(`create new media ${source.source.url}`)
       window.__stCordovaHook__.__private__.mediaList[source.source.url].media = new Media(
         source.source.url,
         window.__stCordovaHook__.__private__.success,
