@@ -6,7 +6,6 @@ Le SDK s'articule autour de 4 composants [Stencil](https://stenciljs.com/), resp
 - [le(s) widget(s)](#widget)
 - la page d'un [contenu](#content) (podcast, livre audio, ...)
 - la page d'un [élement](#element) (épisode, piste, ...)
-- l'[adapteur Cordova](#adapter)
 
 ---
 
