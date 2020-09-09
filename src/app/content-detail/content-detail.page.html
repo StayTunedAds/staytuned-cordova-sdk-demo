@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title> {{ currentContent?.title }} </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">{{ currentContent?.title }}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <div class="loader-page" *ngIf="isLoading">
+        <div style="margin: auto">
+            <ion-spinner color="primary"></ion-spinner>
+        </div>
+    </div>
+
+    <ion-list *ngIf="!isLoading">
+        <st-content-detail #content data="{{ dataString }}"></st-content-detail>
+    </ion-list>
+</ion-content>

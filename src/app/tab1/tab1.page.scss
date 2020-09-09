@@ -1,0 +1,35 @@
+.section {
+    h2 {
+        padding: 4px 16px;
+        margin: 0;
+    }
+
+    .horizontal-scroll {
+        width: 100vw;
+        white-space: nowrap;
+        padding: 8px;
+        overflow: scroll;
+    }
+}
+
+.content {
+    margin: 8px;
+    max-width: 150px;
+
+    > div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 2px 0;
+    }
+
+    .title {
+        font-weight: bold;
+        margin-top: 2px;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+        border-radius: 10%;
+    }
+}

@@ -1,0 +1,37 @@
+<ion-header [translucent]="false">
+    <ion-toolbar>
+        <ion-title> Home </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Home</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <div class="loader-page" *ngIf="isLoading">
+        <div style="margin: auto">
+            <ion-spinner color="primary"></ion-spinner>
+        </div>
+    </div>
+
+    <ion-list *ngIf="!isLoading">
+        <div *ngFor="let section of sections; index as i;" class="section">
+            <h2>{{section.name}}</h2>
+            <div class="horizontal-scroll" scrollX="true">
+                <div
+                    *ngFor="let content of section.linkedContents"
+                    style="display: inline-block"
+                    class="content"
+                    [routerLink]="['/tabs/content-detail', content.key]"
+                >
+                    <img [src]="content.imgSrc" height="100px" />
+                    <div class="title">{{ content.title }}</div>
+                    <div>{{ content.author }}</div>
+                </div>
+            </div>
+        </div>
+    </ion-list>
+</ion-content>
