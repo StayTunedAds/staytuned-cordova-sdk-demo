@@ -3,26 +3,19 @@
 </div>
 <br>
 
-# StayTuned Cordova SDK - Demo Ionic Application (Ionic Angular)
+# StayTuned Cordova SDK - Demo Samples
 
 This repository is a demo application for the Staytuned Cordova SDK
 
 ## Requirements
 
--   Ionic-Cli > 6
+-   node > 12
 -   npm > 6
 
 ## Install
 
 ```bash
 yarn install
-ionic build android
-```
-
-## Run
-
-```
-ionic run android
 ```
 
 ## Documentation
