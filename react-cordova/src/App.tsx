@@ -109,20 +109,3 @@ declare global {
         }
     }
 }
-
-/*
-                                <div
-                                    className="content"
-                                    onClick={() => {
-                                        STContents.getInstance()
-                                            .getContent(content.key!)
-                                            .then((c: STContent) => {
-                                                this.setState({ currentContent: c });
-                                            });
-                                    }}
-                                >
-                                    <img src={content.imgSrc} height="100px" />
-                                    <div className="title">{content.title}</div>
-                                    <div>{content.author}</div>
-                                </div>
-                                */
