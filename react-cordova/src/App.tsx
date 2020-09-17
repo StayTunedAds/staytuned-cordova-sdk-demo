@@ -9,17 +9,17 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            sections: [],
+            contents: [],
             currentContent: undefined,
             currentTrack: undefined,
         };
-        STSections.getInstance()
-            .getSections()
-            .then((sections: STSection[]) => {
-                this.setState({ sections: sections });
+        STContents.getInstance()
+            .getContents()
+            .then((contents: STContentLight[]) => {
+                this.setState({ contents: contents });
             })
             .catch((err) => {
-                console.dir("Error while gettings sections", err);
+                console.dir("Error while gettings contents", err);
             });
     }
 
@@ -30,32 +30,25 @@ export default class App extends React.Component {
     }
 
     render() {
-        const sections = (this.state as any).sections;
+        const contents = (this.state as any).contents;
         const currentContent = (this.state as any).currentContent;
         const currentTrack = (this.state as any).currentTrack;
 
-        let body = sections.map((section: STSection, i: number) => {
+        console.log(contents);
+
+        let body = contents.map((content: STContentLight, i: number) => {
             return (
-                <div>
-                    <h2>{section.name}</h2>
-                    <div className="horizontal-scroll">
-                        {section?.linkedContents?.map((content: STContentLight, i: number) => {
-                            return (
-                                <div className="content-widget">
-                                    <st-content-widget
-                                        data={JSON.stringify(content)}
-                                        onClick={() => {
-                                            STContents.getInstance()
-                                                .getContent(content.key!)
-                                                .then((c: STContent) => {
-                                                    this.setState({ currentContent: c });
-                                                });
-                                        }}
-                                    ></st-content-widget>
-                                </div>
-                            );
-                        })}
-                    </div>
+                <div className="content-widget">
+                    <st-content-widget
+                        data={JSON.stringify(content)}
+                        onClick={() => {
+                            STContents.getInstance()
+                                .getContent(content.key!)
+                                .then((c: STContent) => {
+                                    this.setState({ currentContent: c });
+                                });
+                        }}
+                    ></st-content-widget>
                 </div>
             );
         });
