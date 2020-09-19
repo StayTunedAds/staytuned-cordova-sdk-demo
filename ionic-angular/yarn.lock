@@ -1160,10 +1160,10 @@
     "@staytuned-io/cordova-typescript" "~1.0.0"
     "@stencil/core" "^2.0.3"
 
-"@staytuned-io/cordova-plugin-staytuned@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.0.0.tgz#f29654888992c0310775b02ad349ab199204051e"
-  integrity sha512-NCSG0tq2kfXBCNyt5pAXVvPevsnGB58K8t6IXPAEly41JWhUp7DR2sI0aWJAl6FhcY3hB/ZoZpHCHTWD63Rk9A==
+"@staytuned-io/cordova-plugin-staytuned@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.0.3.tgz#5a314819c31163a1123d1a39f8290bfb666cace3"
+  integrity sha512-u9XiGbFm8OSRy/Sr9axNeK3zLyk2xiMfe8SJzEf2KtckZosnXxmX1GobE6QHQGdtHj/FDoMHvhKN95MguSK6kQ==
 
 "@staytuned-io/cordova-typescript@~1.0.0":
   version "1.0.0"
@@ -2794,10 +2794,10 @@ cordova-plugin-ionic-keyboard@2.2.0:
   resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-keyboard/-/cordova-plugin-ionic-keyboard-2.2.0.tgz#53ba9ccd5e765165446a094cfe042a2ddd87d81d"
   integrity sha512-yDUG+9ieKVRitq5mGlNxjaZh/MgEhFFIgTIPhqSbUaQ8UuZbawy5mhJAVClqY97q8/rcQtL6dCDa7x2sEtCLcA==
 
-cordova-plugin-ionic-webview@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-4.2.1.tgz#42a67bef248472659d421494feb8245ef27becfa"
-  integrity sha512-7KrmqLaOGq1RP8N2z1ezN1kqkWFzTwwMvQ3/qAkd+exxFZuOe3DIN4eaU1gdNphsxdirI8Ajnr9q4So5vQbWqw==
+cordova-plugin-ionic-webview@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-5.0.0.tgz#d58741af85754d80da82c7f673842a3e71bde630"
+  integrity sha512-Wq0kCanxubK/JroTW4Mp5soayScnRyiY1eCkbwiz1Dyt1xHOiOW/v+1miqtBHtnZhcXw25TulCKAVJzkNBdmyg==
 
 cordova-plugin-splashscreen@5.0.2:
   version "5.0.2"
