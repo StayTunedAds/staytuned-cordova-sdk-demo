@@ -1152,23 +1152,23 @@
     semver "7.1.3"
     semver-intersect "1.4.0"
 
-"@staytuned-io/cordova-components@~1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-components/-/cordova-components-1.0.1.tgz#f7bbd41a036011d72757e359459c37e6dee17cb9"
-  integrity sha512-82e7UrLu0KexoseT/xzcyGSVMJX/Z32RC3sZF7kecV5RPNWrhrLFROxu9cckbaQotf9TA/dzXJiTMljJhzL/Lw==
+"@staytuned-io/cordova-components@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-components/-/cordova-components-1.0.5.tgz#f15a97900e361ac1221c9b6a2405d4e8bcfbcddf"
+  integrity sha512-it2058/zerWiV8cgm9ksXINpdKPmIyuJL/W4/mUvHaO5JZgNCBZ6Z2ZdtxeBEahIjXGeD5itcR/TphmosWMAzg==
   dependencies:
-    "@staytuned-io/cordova-typescript" "~1.0.0"
+    "@staytuned-io/cordova-typescript" "^1.0.4"
     "@stencil/core" "^2.0.3"
 
-"@staytuned-io/cordova-plugin-staytuned@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.0.3.tgz#5a314819c31163a1123d1a39f8290bfb666cace3"
-  integrity sha512-u9XiGbFm8OSRy/Sr9axNeK3zLyk2xiMfe8SJzEf2KtckZosnXxmX1GobE6QHQGdtHj/FDoMHvhKN95MguSK6kQ==
+"@staytuned-io/cordova-plugin-staytuned@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.0.4.tgz#db40daa1590d6798094d92a8d7ddfa70347a25c7"
+  integrity sha512-MlDv8n5+1KSg0FJ5kxCw0NWvBdf0zbA8toiXbPmyzcD3Ie0Dns2hDEX5WP8OK5oSP6D/gWPm87fWdnN8iZAvnQ==
 
-"@staytuned-io/cordova-typescript@~1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-typescript/-/cordova-typescript-1.0.0.tgz#c49f56f0b440c3fb05bba5c889b53b171ef18d32"
-  integrity sha512-fh06/dIN+KbS41eoNoQiEBcTGQlSG+jMx6RMBWALLUJnQ+bRqSFaoCsU+dWo7VU4YAXeY2HqLp3Pdsyg81Nipg==
+"@staytuned-io/cordova-typescript@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-typescript/-/cordova-typescript-1.0.4.tgz#cf92d3e72c68a5bd1e49215db06aeafcf1d09ac3"
+  integrity sha512-V/hszfG3T84KuQYtK0jWlwWAeu0nmorNv703bkJwYsKLq3C2aGMT1gbAORqi1NmZq5YPjLI+DYSf/X7TRSRmqQ==
 
 "@stencil/core@^2.0.3":
   version "2.0.3"

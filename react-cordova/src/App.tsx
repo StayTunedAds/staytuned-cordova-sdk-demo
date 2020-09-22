@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { STContent, STContentLight, STContents, STPlayer, STSection, STSections, STTrack } from "@staytuned-io/cordova-typescript";
+import { STContent, STContentLight, STContents, STTrack } from "@staytuned-io/cordova-typescript";
 
 export default class App extends React.Component {
     public myRef: React.RefObject<any> = React.createRef();
