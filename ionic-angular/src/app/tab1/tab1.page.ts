@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Platform } from "@ionic/angular";
-import { STSection, STSections } from "@staytuned-io/cordova-typescript";
+import Staytuned, { STSection, STSections } from "@staytuned-io/cordova-typescript";
 import { Router } from "@angular/router";
 
 @Component({
@@ -14,8 +14,14 @@ export class Tab1Page {
     constructor(private platform: Platform, private router: Router) {}
 
     public async ngOnInit() {
-        this.isLoading = true;
-        this.sections = await STSections.getInstance().getSections();
-        this.isLoading = false;
+        this.onDeviceReady();
+    }
+
+    onDeviceReady() {
+        this.platform.ready().then(async () => {
+            this.isLoading = true;
+            this.sections = await STSections.getInstance().getSections();
+            this.isLoading = false;
+        });
     }
 }
