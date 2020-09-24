@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component, ViewChild, ElementRef, NgZone } from "@angular/core";
 import { STContents, STPlayer, STContent, STTrack } from "@staytuned-io/cordova-typescript";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -14,7 +14,7 @@ export class ContentDetailPage {
 
     @ViewChild("content") contentComponent: ElementRef<HTMLStContentDetailElement>;
 
-    constructor(private route: ActivatedRoute, private router: Router) {}
+    constructor(private route: ActivatedRoute, private router: Router, private ngZone: NgZone) {}
 
     public async ngOnInit() {
         this.isLoading = true;
@@ -24,14 +24,19 @@ export class ContentDetailPage {
             currentContent.elementList.sort((a, b) => {
                 return a.chapter - b.chapter;
             });
+            currentContent.elementList.sort((a, b) => {
+                return a.episode - b.episode;
+            });
             this.isLoading = false;
             this.dataString = JSON.stringify(currentContent);
 
             setTimeout(() => {
                 (this.contentComponent.nativeElement as any).onTrackClick = (track) => {
-                    this.router.navigateByUrl("/tabs/content-detail/" + currentContent.key + "/tracks/" + track.key);
+                    this.ngZone.run(() => {
+                        this.router.navigateByUrl("/tabs/content-detail/" + currentContent.key + "/tracks/" + track.key);
+                    });
                 };
-            });
+            }, 50);
         });
     }
 
