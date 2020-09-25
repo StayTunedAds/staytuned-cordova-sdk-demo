@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@staytuned-io/cordova-components": "^1.0.5",
-        "@staytuned-io/cordova-typescript": "^1.0.5",
+        "@staytuned-io/cordova-components": "^1.0.7",
+        "@staytuned-io/cordova-typescript": "^1.0.7",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -18,7 +18,7 @@
         "typescript": "~3.7.2"
     },
     "devDependencies": {
-        "@staytuned-io/cordova-plugin-staytuned": "^1.0.5",
+        "@staytuned-io/cordova-plugin-staytuned": "^1.0.7",
         "cordova-android": "^9.0.0",
         "cordova-browser": "^6.0.0",
         "cordova-plugin-whitelist": "^1.3.4"
@@ -28,7 +28,8 @@
         "build": "react-scripts build && rm -rf www/* && mkdir www && cp -r build/* www",
         "build:w": "react-scripts build && rmdir www /S/Q && mkdir www && xcopy build www /E/H/C/I",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "link:all": "yarn link @staytuned-io/cordova-typescript && yarn link @staytuned-io/cordova-components && yarn link @staytuned-io/cordova-plugin-staytuned"
     },
     "eslintConfig": {
         "extends": "react-app"
