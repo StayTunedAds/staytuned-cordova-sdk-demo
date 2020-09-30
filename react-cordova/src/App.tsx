@@ -1,6 +1,6 @@
-import React from "react";
-import "./App.css";
-import { STContent, STContentLight, STContents, STTrack } from "@staytuned-io/cordova-typescript";
+import React from 'react';
+import './App.css';
+import { STContent, STContentLight, STContents, STTrack } from '@staytuned-io/cordova-typescript';
 
 export default class App extends React.Component {
     public myRef: React.RefObject<any> = React.createRef();
@@ -13,14 +13,17 @@ export default class App extends React.Component {
             currentContent: undefined,
             currentTrack: undefined,
         };
-        STContents.getInstance()
-            .getContents()
-            .then((contents: STContentLight[]) => {
-                this.setState({ contents: contents });
-            })
-            .catch((err) => {
-                console.dir("Error while gettings contents", err);
-            });
+
+        document.addEventListener('deviceready', () => {
+            STContents.getInstance()
+                .getContents()
+                .then((contents: STContentLight[]) => {
+                    this.setState({ contents: contents });
+                })
+                .catch((err) => {
+                    console.dir('Error while gettings contents', err);
+                });
+        });
     }
 
     componentDidUpdate() {
@@ -95,10 +98,10 @@ export default class App extends React.Component {
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            "st-mini-player": React.DetailedHTMLProps<any, HTMLElement>;
-            "st-content-detail": React.DetailedHTMLProps<any, HTMLElement>;
-            "st-track-detail": React.DetailedHTMLProps<any, HTMLElement>;
-            "st-content-widget": React.DetailedHTMLProps<any, HTMLElement>;
+            'st-mini-player': React.DetailedHTMLProps<any, HTMLElement>;
+            'st-content-detail': React.DetailedHTMLProps<any, HTMLElement>;
+            'st-track-detail': React.DetailedHTMLProps<any, HTMLElement>;
+            'st-content-widget': React.DetailedHTMLProps<any, HTMLElement>;
         }
     }
 }
