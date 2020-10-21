@@ -13,14 +13,16 @@ export default class App extends React.Component {
             currentContent: undefined,
             currentTrack: undefined,
         };
-        STContents.getInstance()
-            .getContents()
-            .then((contents: STContentLight[]) => {
-                this.setState({ contents: contents });
-            })
-            .catch((err) => {
-                console.dir("Error while gettings contents", err);
-            });
+        document.addEventListener('deviceready', () => {
+            STContents.getInstance()
+                .getContents()
+                .then((contents: STContentLight[]) => {
+                    this.setState({ contents: contents });
+                })
+                .catch((err) => {
+                    console.dir('Error while gettings contents', err);
+                });
+        });
         
         STPlayer.getInstance().setOnCellClickListener((content: STContent) => { 
             this.setState({ currentContent: content });
@@ -99,10 +101,10 @@ export default class App extends React.Component {
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            "st-mini-player": React.DetailedHTMLProps<any, HTMLElement>;
-            "st-content-detail": React.DetailedHTMLProps<any, HTMLElement>;
-            "st-track-detail": React.DetailedHTMLProps<any, HTMLElement>;
-            "st-content-widget": React.DetailedHTMLProps<any, HTMLElement>;
+            'st-mini-player': React.DetailedHTMLProps<any, HTMLElement>;
+            'st-content-detail': React.DetailedHTMLProps<any, HTMLElement>;
+            'st-track-detail': React.DetailedHTMLProps<any, HTMLElement>;
+            'st-content-widget': React.DetailedHTMLProps<any, HTMLElement>;
         }
     }
 }

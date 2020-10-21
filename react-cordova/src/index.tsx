@@ -14,7 +14,7 @@ const renderReactDom = () => {
         <React.StrictMode>
             <App />
         </React.StrictMode>,
-        document.getElementById("root")
+        document.getElementById('root'),
     );
 };
 
@@ -29,7 +29,7 @@ if ((window as any).cordova) {
             }
             renderReactDom();
         },
-        false
+        false,
     );
 } else {
     renderReactDom();
