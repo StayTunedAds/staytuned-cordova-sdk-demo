@@ -3,8 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { defineCustomElements } from "@staytuned-io/cordova-components/loader";
+import { applyPolyfills, defineCustomElements } from "@staytuned-io/cordova-components/loader";
 import Staytuned from "@staytuned-io/cordova-typescript";
+import 'core-js/es/map'
+import 'core-js/es/set'
+import 'core-js/es/symbol' 
 
 const renderReactDom = () => {
     ReactDOM.render(
@@ -18,9 +21,13 @@ const renderReactDom = () => {
 if ((window as any).cordova) {
     document.addEventListener(
         "deviceready",
-        () => {
+        async () => {
+            try {
+                await Staytuned.getInstance().init("fc921b10-9371-45ba-af97-17b9ee05033b", "cf21bc55.e88d6f2e-9295-4ea9-bcd9-51057492cab8");
+            } catch (err) {
+                console.warn("already init");
+            }
             renderReactDom();
-            Staytuned.getInstance().init("de03f2b8-ef81-428e-a20c-fb5becf32cad", "dda710aa.74ff4f0a-cf6b-4db1-9345-e88862ca7ce9");
         },
         false
     );
@@ -34,3 +41,4 @@ if ((window as any).cordova) {
 serviceWorker.unregister();
 
 defineCustomElements();
+applyPolyfills();

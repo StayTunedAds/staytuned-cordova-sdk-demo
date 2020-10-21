@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { STContent, STContentLight, STContents, STTrack } from "@staytuned-io/cordova-typescript";
+import { STContent, STContentLight, STContents, STPlayer, STTrack } from "@staytuned-io/cordova-typescript";
 
 export default class App extends React.Component {
     public myRef: React.RefObject<any> = React.createRef();
@@ -21,6 +21,10 @@ export default class App extends React.Component {
             .catch((err) => {
                 console.dir("Error while gettings contents", err);
             });
+        
+        STPlayer.getInstance().setOnCellClickListener((content: STContent) => { 
+            this.setState({ currentContent: content });
+        })
     }
 
     componentDidUpdate() {
