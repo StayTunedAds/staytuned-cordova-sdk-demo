@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { STContent, STContentLight, STContents, STPlayer, STTrack } from "@staytuned-io/cordova-typescript";
+import { STContent, STContentLight, STContents, STOffline, STPlayer, STTrack } from "@staytuned-io/cordova-typescript";
 
 export default class App extends React.Component {
     public myRef: React.RefObject<any> = React.createRef();
@@ -13,20 +13,26 @@ export default class App extends React.Component {
             currentContent: undefined,
             currentTrack: undefined,
         };
-        document.addEventListener('deviceready', () => {
+        document.addEventListener("deviceready", () => {
             STContents.getInstance()
                 .getContents()
                 .then((contents: STContentLight[]) => {
                     this.setState({ contents: contents });
                 })
                 .catch((err) => {
-                    console.dir('Error while gettings contents', err);
+                    console.dir("Error while gettings contents", err);
                 });
         });
-        
-        STPlayer.getInstance().setOnCellClickListener((content: STContent) => { 
+
+        STPlayer.getInstance().setOnCellClickListener((content: STContent) => {
             this.setState({ currentContent: content });
-        })
+        });
+
+        // This is how you retrieve the offline tracks
+        // With this list you will be able to do your own screen listing the downloaded tracks
+        STOffline.getInstance().observeTracks((tracks) => {
+            console.log("Offline Tracks Changed", tracks);
+        });
     }
 
     componentDidUpdate() {
@@ -101,10 +107,10 @@ export default class App extends React.Component {
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'st-mini-player': React.DetailedHTMLProps<any, HTMLElement>;
-            'st-content-detail': React.DetailedHTMLProps<any, HTMLElement>;
-            'st-track-detail': React.DetailedHTMLProps<any, HTMLElement>;
-            'st-content-widget': React.DetailedHTMLProps<any, HTMLElement>;
+            "st-mini-player": React.DetailedHTMLProps<any, HTMLElement>;
+            "st-content-detail": React.DetailedHTMLProps<any, HTMLElement>;
+            "st-track-detail": React.DetailedHTMLProps<any, HTMLElement>;
+            "st-content-widget": React.DetailedHTMLProps<any, HTMLElement>;
         }
     }
 }
