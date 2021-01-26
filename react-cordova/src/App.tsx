@@ -24,9 +24,9 @@ export default class App extends React.Component {
                 });
         });
 
-        STPlayer.getInstance().setOnCellClickListener((content: STContent) => {
+        /* STPlayer.getInstance().setOnCellClickListener((content: STContent) => {
             this.setState({ currentContent: content });
-        });
+        }); */
 
         // This is how you retrieve the offline tracks
         // With this list you will be able to do your own screen listing the downloaded tracks
@@ -45,8 +45,6 @@ export default class App extends React.Component {
         const contents = (this.state as any).contents;
         const currentContent = (this.state as any).currentContent;
         const currentTrack = (this.state as any).currentTrack;
-
-        console.log(contents);
 
         let body = contents.map((content: STContentLight, i: number) => {
             return (

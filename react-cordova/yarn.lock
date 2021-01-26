@@ -1409,23 +1409,23 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.3.tgz#5405ee8e444ed212db44e79351f0c70a582aae25"
   integrity sha512-DetpxZw1fzPD5xUBrIAoplLChO2VB8DlL5Gg+I1IR9b2wPqYIca2WSUxL5g1vLeR4MsQq1NeWriXAVffV+U1Fw==
 
-"@staytuned-io/cordova-components@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-components/-/cordova-components-1.0.13.tgz#64ba565a2501f3caeadb8d9a4d9c9affab34adac"
-  integrity sha512-UpoVFejv2z/Hk9Zq4QfUmnExsccnS/joVzg9yuhKmaLI60ky0XVMkZaK0C0FRyfsUBzCD3CKf3w5LKMyILS0xA==
+"@staytuned-io/cordova-components@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-components/-/cordova-components-1.1.0.tgz#16f22c018b998ade8341270d4e8aa88c49d672eb"
+  integrity sha512-qnAUf2bsin/o9SR63HSy87JzFYg7v8gxNTsYpCE85db0L7XO4pvxklwkrEX/KJTNdgzmWKef+99tOYkBSLNi9g==
   dependencies:
-    "@staytuned-io/cordova-typescript" "^1.0.13"
+    "@staytuned-io/cordova-typescript" "^1.1.0"
     "@stencil/core" "^2.0.3"
 
-"@staytuned-io/cordova-plugin-staytuned@^1.0.16":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.0.16.tgz#807e7aa54ec4cf6987c51f44304be80f70dbba1b"
-  integrity sha512-eAypq+sFzmXEzd/BVG+d8ccA/VmmfkIBGYgibQWnheKZ0mOAHJq2lGS6bL9Rwv3RtvAncDPo8obvBTnIDJJlHQ==
+"@staytuned-io/cordova-plugin-staytuned@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.1.0.tgz#2a6406c4b5a13afae96925542b433e5f6c232387"
+  integrity sha512-0icMxmkonBept3+SeXtt1T9eCSBJhHp2Cc4+2WHnheBa9CE9Yafw+zceUzbk847MVzRcWE32WhxwGk3CUefTDg==
 
-"@staytuned-io/cordova-typescript@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-typescript/-/cordova-typescript-1.0.13.tgz#d6d7a8055b75ab61d80be01b3b571fdbe690cfec"
-  integrity sha512-xgQYamYSFd029YMIniL4cWgbObfd2be3TVqCvlMwvMiSxXniHOQF6EKY+m77WBqHXZJBIJ82qn0GD6hFKtgcoA==
+"@staytuned-io/cordova-typescript@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-typescript/-/cordova-typescript-1.1.0.tgz#e159a9afe84c40d4a74dd96bd70c6a0e231482ec"
+  integrity sha512-B3trAvelOxssS2Ko0F6tMXQOY6GBaRHD+jDDXq3TD0YP48U4RU3ooD04qcGhfIGG/xCMP/O2+EL9jFFeyvB0SQ==
 
 "@stencil/core@^2.0.3":
   version "2.1.0"
