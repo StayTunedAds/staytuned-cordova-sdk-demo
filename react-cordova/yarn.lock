@@ -1417,10 +1417,10 @@
     "@staytuned-io/cordova-typescript" "^1.1.0"
     "@stencil/core" "^2.0.3"
 
-"@staytuned-io/cordova-plugin-staytuned@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.1.0.tgz#2a6406c4b5a13afae96925542b433e5f6c232387"
-  integrity sha512-0icMxmkonBept3+SeXtt1T9eCSBJhHp2Cc4+2WHnheBa9CE9Yafw+zceUzbk847MVzRcWE32WhxwGk3CUefTDg==
+"@staytuned-io/cordova-plugin-staytuned@^1.1.3":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@staytuned-io/cordova-plugin-staytuned/-/cordova-plugin-staytuned-1.1.4.tgz#453229352382a0728390620d98e4f59590c848eb"
+  integrity sha512-AKWG6aBuSZ3eTGYlIrJMwA1+NVH1KnjhO7XATL0WGHxX6Dxa2RFsUC4V8JDFsINtcT+jxV4SF9xPDTN3NwN//g==
 
 "@staytuned-io/cordova-typescript@^1.1.0":
   version "1.1.0"
